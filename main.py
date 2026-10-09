@@ -8,8 +8,6 @@ import struct
 import time
 import os
 import urllib.parse
-import random
-import time
 
 # 在程序最开始加入随机等待（0 到 3600 秒，即 0-60 分钟）
 wait_seconds = random.randint(0, 3600)
