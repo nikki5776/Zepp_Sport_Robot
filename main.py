@@ -9,10 +9,6 @@ import time
 import os
 import urllib.parse
 
-# 在程序最开始加入随机等待（0 到 3600 秒，即 0-60 分钟）
-wait_seconds = random.randint(0, 3600)
-print(f"信息:随机等待 {wait_seconds} 秒后开始运行...")
-time.sleep(wait_seconds)
 def login(account, password):
     PHONE_PATTERN = r"(^(1)\d{10}$)"
     if re.match(PHONE_PATTERN, account):
@@ -166,6 +162,10 @@ def URL_encode_dataJSON(dateToday, deviceID, steps):
 
 # 主程序
 if __name__ == "__main__":
+    # 在程序最开始加入随机等待（0 到 3600 秒，即 0-60 分钟）
+    wait_seconds = random.randint(0, 3600)
+    print(f"信息:随机等待 {wait_seconds} 秒后开始运行...")
+    time.sleep(wait_seconds)
     # 从环境变量安全地获取 GitHub Secret 中的账号与密码
     ACCOUNT_1 = os.environ.get("ACCOUNT_1", "")
     PASSWORD_1 = os.environ.get("PASSWORD_1", "")
