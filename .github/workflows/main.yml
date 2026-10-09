@@ -3,7 +3,7 @@ name: 自动任务-修改Zepp当天运动数据
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 4 * * *'
+    - cron: '0 1 * * *'
 
 jobs:
   run-python-script:
@@ -19,6 +19,8 @@ jobs:
         run: pip install requests==2.26.0
       - name: '运行主程序'
         env:
-          ACCOUNT: ${{ secrets.ACCOUNT }}
-          PASSWORD: ${{ secrets.PASSWORD }}
+          ACCOUNT_1: ${{ secrets.ACCOUNT_1 }}
+          PASSWORD_1: ${{ secrets.PASSWORD_1 }}
+          ACCOUNT_2: ${{ secrets.ACCOUNT_2 }}
+          PASSWORD_2: ${{ secrets.PASSWORD_2 }}
         run: python ./main.py
