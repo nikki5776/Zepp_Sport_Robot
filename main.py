@@ -8,7 +8,13 @@ import struct
 import time
 import os
 import urllib.parse
+import random
+import time
 
+# 在程序最开始加入随机等待（0 到 3600 秒，即 0-60 分钟）
+wait_seconds = random.randint(0, 3600)
+print(f"信息:随机等待 {wait_seconds} 秒后开始运行...")
+time.sleep(wait_seconds)
 def login(account, password):
     PHONE_PATTERN = r"(^(1)\d{10}$)"
     if re.match(PHONE_PATTERN, account):
