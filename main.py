@@ -163,8 +163,10 @@ def URL_encode_dataJSON(dateToday, deviceID, steps):
 # 主程序
 if __name__ == "__main__":
     # 从环境变量安全地获取 GitHub Secret 中的账号与密码
-    ACCOUNT = os.environ.get("ACCOUNT", "")
-    PASSWORD = os.environ.get("PASSWORD", "")
+    ACCOUNT_1 = os.environ.get("ACCOUNT_1", "")
+    PASSWORD_1 = os.environ.get("PASSWORD_1", "")
+    ACCOUNT_2 = os.environ.get("ACCOUNT_2", "")
+    PASSWORD_2 = os.environ.get("PASSWORD_2", "")
     
     # 用户账号组配置:每个账号可以设置固定步数或使用随机范围
     # 配置格式: [账号, 密码, 步数设置]
@@ -173,10 +175,11 @@ if __name__ == "__main__":
         # - 随机范围: [最小值, 最大值] 如 [25000, 55000]
         # - None: 使用默认随机范围
     AccountGroup = [
-        [ACCOUNT, PASSWORD, None],   # 使用默认随机步数
-        #['账号2', '密码2', [20000, 40000]],  # 使用随机范围20000-40000
-        #['账号3', '密码3', [30000, 50000]],  # 使用随机范围30000-50000
-        #['账号4', '密码4', 50000],  # 使用定值步数50000
+        [ACCOUNT_1, PASSWORD_1, [20000, 30000]],           # 账号1，使用默认随机步数
+        [ACCOUNT_2, PASSWORD_2, [20000, 30000]],           # 账号2，使用默认随机步数
+        #  [ACCOUNT_3, PASSWORD_3, None],           # 账号3，使用默认随机步数
+        # [ACCOUNT_4, PASSWORD_4, [20000, 40000]],  # 账号4，自定义随机范围
+        # [ACCOUNT_5, PASSWORD_5, 30000],            # 账号5，固定步数30000
     ]
     
     # 默认随机范围（用于步数设置为None的情况）
